@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cs336-import-check
+  namespace: poc-assignment1-basics
+  labels:
+    app: cs336-basics
+    autopoc.io/project: assignment1-basics
+spec:
+  backoffLimit: 1
+  activeDeadlineSeconds: 120
+  template:
+    spec:
+      containers:
+        - name: cs336-basics
+          image: quay.io/aicatalyst/assignment1-basics:latest
+          imagePullPolicy: Always
+          command: ["python"]
+          args: ["-c", "import torch; import numpy; import tiktoken; import einops; print(f'torch={torch.__version__}, numpy={numpy.__version__}, tiktoken={tiktoken.__version__}')"]
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+      restartPolicy: Never

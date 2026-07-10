@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: poc-assignment1-basics
+  labels:
+    app.kubernetes.io/name: assignment1-basics
+    app.kubernetes.io/managed-by: autopoc
