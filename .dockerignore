@@ -1,0 +1,13 @@
+.git
+*.md
+LICENSE
+kubernetes/
+poc-plan.md
+docs/
+__pycache__/
+.env*
+*.pyc
+data/
+*.pdf
+uv.lock
+.autopoc/
