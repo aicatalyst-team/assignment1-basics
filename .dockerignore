@@ -1,5 +1,4 @@
 .git
-*.md
 LICENSE
 kubernetes/
 poc-plan.md
@@ -9,5 +8,4 @@ __pycache__/
 *.pyc
 data/
 *.pdf
-uv.lock
 .autopoc/
